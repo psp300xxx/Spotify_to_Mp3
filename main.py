@@ -65,7 +65,7 @@ def get_bearer_token(client_id: str, client_secret: str, store_path = "./token.j
     if current_token is not None:
         return current_token
     headers = { "Content-Type" : "application/x-www-form-urlencoded"}
-    data = "grant_type=client_credentials&client_id={}&client_secret={}".format(CLIENT_ID, CLIENT_SECRET)
+    data = "grant_type=client_credentials&client_id={}&client_secret={}".format(client_id, client_secret)
     response = requests.post(TOKEN_REQUEST_URL, headers=headers, data=data)
     if not response.status_code == 200:
         LOGGER.error("Unable to retrieve token")
